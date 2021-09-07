@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    let person1 = {
+        name: 'Vlad',
+        zp: 1000,
+        currency: '$',
+        location: 'China',
+        tax: 90,
+    }
+
+    let person2 = {
+        name: 'Alex',
+        zp: 100,
+        currency: '$',
+        location: 'England',
+        tax: 50
+    }
+
+    let person3 = {
+        name: 'Ivan',
+        zp: 1000,
+        currency: '$',
+        location: 'Russia',
+        tax: 90
+    }
+
+    let person4 = {
+        name: 'Ruslan',
+        zp: 10000,
+        currency: '$',
+        location: 'Moldova',
+        tax: 10
+    }
+
+    let person5 = {
+        name: 'Peter',
+        zp: 1000,
+        currency: '$',
+        location: 'China',
+        tax: 90,
+    }
+
+    const company = [person1, person2, person3, person4, person5];
+
+
+    let cacheStorage = new Map();
+
+    function calcSalary( {zp, tax} ) {
+        if(cacheStorage.has({zp, tax})) {
+            return cacheStorage.get({zp, tax});
+        }
+
+
+        // Представим что тут много-много кода
+        let result = zp - tax;
+        cacheStorage.set( {zp, tax}, result);
+        return result;
+    }
+
+    company.forEach(currentPerson => {
+        console.log(calcSalary(currentPerson))
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
